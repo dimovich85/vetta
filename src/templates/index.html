@@ -1,10 +1,142 @@
-{% set title="Main Page" %}
-{% set lang="en" %}
+{% set title="Vetta Stone - найкращі вироби зі штучного каменю!" %}
+{% set lang="uk" %}
 
 {% include 'parts/_head.html' %}
 
 {% include 'parts/_header.html' %}
+<main>
+    <div class="banner-slider">
+        <div class="banner-slider__container">
+            <div class="banner-slider__slide">
 
+            </div>
+            <div class="banner-slider__slide">
 
- 
+            </div>
+        </div>
+        <h1 class="banner-slider__h">
+            <span class="sr-only">Vetta Stone - </span>
+            Вироби зі штучного каменю
+        </h1>
+        <a 
+            aria-label="Перейти до наступного розділу"
+            href="#" 
+            class="banner-slider__next"
+        >
+        </a>
+    </div>
+
+    <section class="articles wrapper">
+        <h2 class="sr-only">
+            Наш асортимент
+        </h2>
+        {%
+            set articles = [
+                {
+                    title: 'Акриловий 
+                    камінь',
+                    text: 'Штучний камінь — оригінальний твердий матеріал для робочих поверхонь, який був винайдений фірмою DuPont в середині 1960-х років. Гарний, міцний, дуже модний і практичний.',
+                    img: 'img/acrilic-stone.jpg'
+                },
+                {
+                    title: 'Кварц',
+                    text: 'Кварцові стільниці — це, безумовно, показник найвищих стандартів життя, гарного смаку та далекоглядності. Так, саме далекоглядності, оскільки цей матеріал володіє не тільки чудовими експлуатаційними характеристиками, але й бездоганним естетичним виглядом.',
+                    img: '../img/quarz.jpg'
+                },
+                {
+                    title: 'Керамограніт',
+                    text: 'Керамограніт — один з найміцніших і найвитриваліших оздоблювальних матеріалів. Про це «мовить» і сама його назва. Що ж пов’язує штучно створений матеріал із відомою своєю міцністю гірською породою? Передусім, це його посилені технічні властивості.',
+                    img: 'img/ceramic-granit.jpg'
+                },
+                {
+                    title: 'HPL панелі',
+                    text: 'Кварцові стільниці — це, безумовно, показник найвищих стандартів життя, гарного смаку та далекоглядності. Так, саме далекоглядності, оскільки цей матеріал володіє не тільки чудовими експлуатаційними характеристиками, але й бездоганним естетичним виглядом.',
+                    img: 'img/HPL.jpg'
+                }
+            ]    
+        %}
+        {% for article in articles %}
+        <article class="article">
+            <h3 class="article__h">
+                {{ article.title }}
+            </h3>
+            <img 
+                src="{{ article.img }}" 
+                alt="Фотографія - {{ article.title }}" 
+                class="article__img"
+            >
+            <p class="article__text">
+                {{ article.text }}
+            </p>
+            <a href="#" download class="article__link">Завантажити</a>
+        </article>
+        {% endfor %}
+    </section>
+
+    <section class="block-form">
+        <div class="wrapper block-form__wrap">
+            <header class="block-form__info">
+                <h2 class="block-form__h">Дізнайтесь вартість Вашого проекту</h2>
+                <p class="block-form__text">
+                    Залиште Ваші контакти і ми зв’яжемось з Вами найближчим часом для розрахунку вартості
+                </p>
+            </header>
+            <form 
+                action="#" 
+                class="block-form__form main-form"
+            >
+                <label for="form-name" class="main-form__label sr-only">
+                    Напишіть своє ім'я:
+                </label>
+                <input placeholder="Ваше Ім'я" id="form-name" type="text" class="main-form__input">
+                <label for="form-phone" class="main-form__label sr-only">
+                    Напишіть свій номер телефону:
+                </label>
+                <input placeholder="Номер телефону" id="form-phone" type="text" class="main-form__input">
+                <label for="form-email" class="main-form__label sr-only">
+                    Напишіть свою електронну пошту:
+                </label>
+                <input placeholder="Email" id="form-email" type="text" class="main-form__input">
+                <label for="form-message" class="main-form__label">
+                    Текст повідомлення
+                </label>
+                <textarea id="form-message" class="main-form__input"></textarea>
+                <button type="submit" class="main-form__btn">
+                    Надіслати
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <section class="portfolio wrapper">
+        <h2 class="portfolio__h">
+            Наші роботи
+        </h2>
+        <ul class="portfolio__list">
+            {% for i in range(1,8)  %}
+            <li class="portfolio__example">
+                <figure class="portfolio__figure">
+                    <img 
+                        src="img/jobs{{ i }}.jpg" 
+                        alt="Фотографія стільниці з кварцу
+                        Caesarstone"
+                        class="portfolio__photo"
+                    >
+                    <figcaption class="portfolio__caption">
+                        Стільниця з кварцу Caesarstone
+                    </figcaption>
+                </figure>
+            </li>
+            {% endfor %}
+        </ul>
+        <a 
+            target="_blank"
+            rel="noopener noreferrer"
+            href="#" 
+            class="portfolio__link"
+        >
+            Всі роботи
+        </a>
+    </section>
+</main>
 {% include 'parts/_foot.html' %}

@@ -25,7 +25,7 @@
         </h1>
     </div>
 
-    <section class="articles wrapper">
+    <section id="products" class="articles wrapper">
         <h2 class="sr-only">
             Наш асортимент
         </h2>
@@ -56,23 +56,25 @@
         %}
         {% for article in articles %}
         <article class="article">
-            <h3 class="article__h">
-                {{ article.title }}
-            </h3>
+            <div class="article__wrap">
+                <h3 class="article__h">
+                    {{ article.title }}
+                </h3>
+                <p class="article__text">
+                    {{ article.text }}
+                </p>
+                <a href="#" download class="article__link">Завантажити</a>
+            </div>
             <img 
                 src="{{ article.img }}" 
                 alt="Фотографія - {{ article.title }}" 
                 class="article__img"
             >
-            <p class="article__text">
-                {{ article.text }}
-            </p>
-            <a href="#" download class="article__link">Завантажити</a>
         </article>
         {% endfor %}
     </section>
 
-    <section class="block-form">
+    <section id="calc" class="block-form">
         <div class="wrapper block-form__wrap">
             <header class="block-form__info">
                 <h2 class="block-form__h">Дізнайтесь вартість Вашого проекту</h2>
@@ -99,7 +101,7 @@
                 <label for="form-message" class="main-form__label">
                     Текст повідомлення
                 </label>
-                <textarea id="form-message" class="main-form__input"></textarea>
+                <textarea id="form-message" class="main-form__input main-form__input_textarea"></textarea>
                 <button type="submit" class="main-form__btn">
                     Надіслати
                 </button>
@@ -107,7 +109,7 @@
         </div>
     </section>
 
-    <section class="portfolio wrapper">
+    <section id="portfolio" class="portfolio wrapper">
         <h2 class="portfolio__h">
             Наші роботи
         </h2>

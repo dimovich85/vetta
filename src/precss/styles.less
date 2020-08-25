@@ -5,6 +5,10 @@
 
 /* Set defaults */
 
+html{
+	scroll-behavior: smooth;
+}
+
 html,
 body{
 	box-sizing: border-box;
@@ -22,7 +26,7 @@ body{
 	margin: 0 auto;
 	font-size: 16px;
 	font-weight: @fontNormal;
-	line-height: 1.2;
+	line-height: 1.5;
 }
 
 ::-webkit-scrollbar{
@@ -91,7 +95,8 @@ a{
 @headerHeight: 109px;
 .main-header{
 	height: @headerHeight;
-	padding: 30px 0;
+	padding-top: 30px;
+	padding-bottom: 30px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -99,7 +104,7 @@ a{
 	font-weight: @fontMedium;
 	font-size: 16px;
 	color: #000;
-	line-height: 20px;
+	line-height: 1.25;
 
 	&__logolink{
 		position: absolute;
@@ -152,6 +157,9 @@ a{
 .banner-slider{
 	padding-bottom: @bannerOffset / 2;
 	min-height: calc(100vh - @headerHeight);
+	&__img{
+		width: 100%;
+	}
 	.slick-dots{
 		margin: 0;
 		padding: 0;
@@ -188,14 +196,97 @@ a{
 .articles{
 	padding-top: @bannerOffset / 2;
 	.pb(228px);
+	min-height: 100vh;
+}
+
+.article{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	&:nth-child(odd){
+		flex-direction: row-reverse;
+		justify-content: flex-end;
+		.article__img{
+			margin-right: 20px;
+		}
+		.article__wrap{
+			padding-left: 28px;
+		}
+	}
+	& + &{
+		margin-top: 228px;
+	}
+	&__img{
+		.size(7);
+	}
+	&__wrap{
+		.size(4);
+	}
 }
 
 @formOffset: {top: 140px; bottom: 172px};
 .block-form{
+	background-color: #000;
+	color: #fff;
 	.padding(
 		@formOffset[top], 
 		@formOffset[bottom]
 	);
+	&__wrap{
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		flex-wrap: wrap;
+	}
+	&__info{
+		.size(4);
+	}
+	&__form{
+		.size(7);
+	}
+	&__h{
+		font-size: 64px / 1440px * 100vw;
+		font-family: @prata;
+		font-weight: 400;
+		line-height: 1.35;
+		margin: 0;
+		margin-bottom: 28px;
+	}
+	&__text,
+	&__link{
+		color: #fff;
+	}
+	&__text{
+		margin: 0;
+		margin-bottom: 28px;
+	}
+}
+
+.main-form{
+	&__label{
+		margin-bottom: 13px;
+		display: block;
+	}
+	&__input{
+		padding-top: 3px;
+		padding-bottom: 10px;
+		display: block;
+		width: 100%;
+		background-color: transparent;
+		border: none;
+		border-bottom: 1px solid @inputGrey;
+		font: inherit;
+		margin-bottom: 28px;
+		&::placeholder{
+			color: #fff;
+		}
+		&_textarea{
+			border: 1px solid @inputGrey;
+			resize: vertical;
+			min-height: 114px;
+		}
+	}
 }
 
 @portfolioOffset: {top: 228px; bottom: 108px};
@@ -204,6 +295,86 @@ a{
 		@portfolioOffset[top], 
 		@portfolioOffset[bottom]
 	);
+	&__h{
+		font-family: @prata;
+		font-weight: @fontNormal;
+		font-size: 64px;
+		line-height: 1.35;
+		text-align: center;
+		margin: 0;
+		margin-bottom: 60px;
+	}
+	&__list{
+		padding: 0;
+		margin-bottom: 60px;
+		list-style: none;
+		.row-flex();
+	}
+	&__example{
+		margin-bottom: 20px;
+		.col();
+		.size(4);
+		&:first-child{
+			.size(8);
+		}
+	}
+	&__figure{
+		margin: 0;
+		padding: 0;
+		position: relative;
+		z-index: 1;
+		&::before{
+			content: '';
+			display: block;
+			position: absolute;
+		}
+		&::before{
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			background-color: rgba(255,255,255,0.5);
+			z-index: 2;
+		}
+		
+		// &:hover::before{
+		// 	opacity: 0.5;
+		// }
+	}
+	&__caption{
+		z-index: 4;
+		transition: @transT;
+		position: absolute;
+		width: 65%;
+		height: 68%;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		text-align: center;
+		font-size: 18px;
+		font-family: @prata;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border: 1px solid #000;
+		&::before{
+			content: '';
+			position: absolute;
+			display: block;
+			top: -24px;
+			bottom: -24px;
+			left: -24px;
+			right: -24px;
+			z-index: 3;
+			background-color: rgba(255,255,255,0.9);
+		}
+	}
+	&__photo{
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+		display: block;
+	}
 }
 
 @footerOffset: {top: 110px; bottom: 44px};
@@ -212,10 +383,39 @@ a{
 	.pt(
 		@footerOffset[top]
 	);
+	.main-form{
+		margin-bottom: 110px;
+	}
+	.block-form{
+		&__h{
+			margin-bottom: 44px;
+		}
+	}
+}
+
+.social-links{
+	display: flex;
+	color: #fff;
+	list-style: none;
+	align-items: baseline;
+	padding: 0;
+	li + li{
+		margin-left: 15px;
+	}
+	&__link{
+		color: #fff;
+	}
+}
+
+.copyright{
+	font-size: 12px;
+	line-height: 15px;
+	color: @inputGrey;
 }
 
 .main-call{
 	position: fixed;
+	z-index: 9999;
 	top: 50%;
 	transform: translateY(-50%);
 	left: 0;

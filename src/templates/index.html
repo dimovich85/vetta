@@ -7,15 +7,20 @@
 <main>
     <div class="banner-slider">
         <div class="banner-slider__container">
+        {% for i in range(1,5) %}
+            {% if loop.index === 1 %}
             <div class="banner-slider__slide">
-
+                <img class="banner-slider__img" src="img/banner{{i}}.jpg" alt="Фотографія стільниці із штучного каменю">
             </div>
+            {% else %}
             <div class="banner-slider__slide">
-
+                <img class="banner-slider__img" data-lazy="img/banner{{i}}.jpg" alt="Фотографія стільниці із штучного каменю">
             </div>
+            {% endif %}
+        {% endfor %}
         </div>
-        <h1 class="banner-slider__h">
-            <span class="sr-only">Vetta Stone - </span>
+        <h1 class="sr-only">
+            Vetta Stone - 
             Вироби зі штучного каменю
         </h1>
         <a 
@@ -113,7 +118,7 @@
             Наші роботи
         </h2>
         <ul class="portfolio__list">
-            {% for i in range(1,8)  %}
+            {% for i in range(1,9)  %}
             <li class="portfolio__example">
                 <figure class="portfolio__figure">
                     <img 

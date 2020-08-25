@@ -1,6 +1,7 @@
 @import 'libs/smart-grid.less';
 @import 'libs/vars.less';
 @import 'libs/mixins.less';
+@import '../../node_modules/slick-carousel/slick/slick.less';
 
 /* Set defaults */
 
@@ -24,16 +25,6 @@ body{
 	line-height: 1.2;
 }
 
-.btn-reset{
-	appearance: none;
-  	border-radius: 0;
-  	opacity: 1;
-	border: none;
-	background-color: transparent;
-	font: inherit;
-	cursor: pointer;
-}
-
 ::-webkit-scrollbar{
 	width: 10px;
 	height: 5px;
@@ -45,9 +36,6 @@ body{
 	background-color: @scrollColor;
 }
 
-.ul-reset{
-	list-style: none;
-}
 
 .input{
 	font: inherit;
@@ -73,36 +61,17 @@ a{
 /* Atomic */
 
 .d-n{
-	display: none;
+	display: none !important;
 }
 
 .d-b{
-	display: block;
-}
-
-.d-f{
-	display: flex;
-}
-
-.ttu{
-	text-transform: uppercase;
-}
-
-.ta-c{
-	text-align: center;
+	display: block !important;
 }
 
 .ov-h{
 	overflow: hidden;
 }
 
-.ov-s{
-	overflow: scroll;
-}
-
-.black{
-	color: #000;
-}
 
 /* Global */
 
@@ -131,55 +100,9 @@ a{
 
 /* General */
 
-.schedule{
-	h2{
-		padding-bottom: 10px;
-		text-align: center;
-		position: relative;
-		&::after{
-			.pseudo();
-			width: 50%;
-			top: 100%;
-			left: 25%;
-			height: 2px;
-			background-color: rgb(33, 209, 33);
-		}
-	}
-
-	&__list{
-		padding: 40px 50px;
-		padding-right: 0;
-		position: relative;
-		list-style: none;
-		&::before,
-		&::after{
-			.pseudo();
-			border: 1px solid #ff00ff;
-			width: 40px;
-			height: 30px;
-			left: 20px;
-		}
-		&::before{
-			top: 0;
-			border-bottom: none;
-		}
-		&::after{
-			bottom: 0;
-			border-top: none;
-		}
-	}
-
-	&__item{
-		&::before,
-		&::after{
-			.pseudo();
-			height: 100%;
-			top: 0;
-			left: 20px;
-			border-left: 1px solid #ff00ff;
-		}
-		& + &{
-			margin-top: 20px;
-		}
+.banner-slider{
+	width: 100%;
+	&__container{
+		max-width: 100%;
 	}
 }

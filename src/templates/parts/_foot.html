@@ -1,4 +1,4 @@
-<footer class="block-form">
+<footer class="block-form main-footer">
     <div class="wrapper block-form__wrap">
         <div class="block-form__info">
             <h2 class="block-form__h">
@@ -87,8 +87,49 @@
         aria-label="Відкрити форму для замовлення дзвінка" 
         class="main-call__btn"
     >
+        {% include './svgo/phone.svg' %}
     </button>
 </aside>
+
+<div class="modal d-n">
+    <div class="modal-content block-form block-form_white">
+        <div class="wrapper block-form__wrap">
+            <div class="block-form__info">
+                <h2 class="block-form__h">
+                    Зв’яжіться з нами
+                </h2>
+                <p class="block-form__text">
+                    Залиште Ваші контакти і ми зв’яжемось з Вами найближчим часом для розрахунку вартості
+                </p>
+            </div>
+            <form 
+                action="#" 
+                class="block-form__form main-form"
+            >
+                <label for="form-name" class="main-form__label sr-only">
+                    Напишіть своє ім'я:
+                </label>
+                <input placeholder="Ваше Ім'я" id="form-name" type="text" class="main-form__input">
+                <label for="form-phone" class="main-form__label sr-only">
+                    Напишіть свій номер телефону:
+                </label>
+                <input placeholder="Номер телефону" id="form-phone" type="text" class="main-form__input">
+                <label for="form-email" class="main-form__label sr-only">
+                    Напишіть свою електронну пошту:
+                </label>
+                <input placeholder="Email" id="form-email" type="text" class="main-form__input">
+                <label for="form-message" class="main-form__label">
+                    Текст повідомлення
+                </label>
+                <textarea id="form-message" class="main-form__input"></textarea>
+                <button type="submit" class="main-form__btn">
+                    Надіслати
+                </button>
+            </form>
+        </div>
+    </div>
+    <button class="modal-close" aria-label="Закрити вікно"></button>
+</div>
 
 <script src="./js/js.js"></script>
 </body>

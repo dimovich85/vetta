@@ -5,7 +5,7 @@
 
 {% include 'parts/_header.html' %}
 <main>
-    <div class="banner-slider">
+    <div id="top" class="banner-slider">
         <div class="banner-slider__container">
         {% for i in range(1,5) %}
             {% if loop.index === 1 %}
@@ -63,12 +63,13 @@
                 <p class="article__text">
                     {{ article.text }}
                 </p>
-                <a href="#" download class="article__link">Завантажити</a>
+                <a href="#" download class="article__link">Завантажити палітру</a>
             </div>
             <img 
                 src="{{ article.img }}" 
                 alt="Фотографія - {{ article.title }}" 
                 class="article__img"
+                loading="lazy"
             >
         </article>
         {% endfor %}
@@ -104,6 +105,7 @@
                 <textarea id="form-message" class="main-form__input main-form__input_textarea"></textarea>
                 <button type="submit" class="main-form__btn">
                     Надіслати
+                    {% include './parts/svgo/arrow.svg' %}
                 </button>
             </form>
         </div>
@@ -117,12 +119,15 @@
             {% for i in range(1,9)  %}
             <li class="portfolio__example">
                 <figure class="portfolio__figure">
-                    <img 
-                        src="img/jobs{{ i }}.jpg" 
-                        alt="Фотографія стільниці з кварцу
-                        Caesarstone"
-                        class="portfolio__photo"
-                    >
+                    <noscript class="loading-lazy">
+                        <img 
+                            src="img/jobs{{ i }}.jpg" 
+                            alt="Фотографія стільниці з кварцу
+                            Caesarstone"
+                            class="portfolio__photo"
+                            loading="lazy"
+                        >
+                    </noscript>
                     <figcaption class="portfolio__caption">
                         Стільниця з кварцу Caesarstone
                     </figcaption>
@@ -133,10 +138,12 @@
         <a 
             target="_blank"
             rel="noopener noreferrer"
-            href="#" 
+            href="https://www.instagram.com/" 
             class="portfolio__link"
+            aria-label="Всі роботи у нашому Instagram"
         >
             Всі роботи
+            {% include './parts/svgo/arrow.svg' %}
         </a>
     </section>
 </main>

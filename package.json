@@ -41,6 +41,7 @@
   ],
   "dependencies": {
     "jquery": "^3.5.1",
+    "loading-attribute-polyfill": "^1.5.4",
     "slick-carousel": "^1.8.1"
   }
 }

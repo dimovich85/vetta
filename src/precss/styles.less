@@ -122,11 +122,44 @@ a{
 	a{
 		color: #000;
 	}
+	&__action{
+		margin: 0;
+		padding: 0;
+		display: none;
+		justify-content: center;
+		align-items: center;
+		border: none;
+		border-radius: 50%;
+		@size: 30px;
+		width: 30px;
+		height: 30px;
+		background-color: transparent;
+		cursor: pointer;
+		transition: background-color @transT;
+		.media-max(900px, {
+			display: flex;
+		});
+		*{
+			transition: @transT;
+		}
+		&:hover,
+		&:focus{
+			background-color: #000;
+		}
+		&:hover *,
+		&:focus *{
+			fill: #fff;
+			stroke: #fff;
+		}
+	}
 }
 
 .main-nav{
 	display: flex;
 	align-items: baseline;
+	.media-max(900px, {
+		display: none;
+	});
 	&__link{
 		& + &{
 			margin-left: 20px;
@@ -149,6 +182,9 @@ a{
 .main-info{
 	display: flex;
 	align-items: baseline;
+	.media-max(900px, {
+		display: none;
+	});
 	&__address{
 		margin: 0;
 	}
@@ -229,7 +265,7 @@ a{
 
 .article{
 	display: flex;
-	flex-wrap: wrap;
+	flex-wrap: wrap-reverse;
 	justify-content: space-between;
 	align-items: center;
 	&:nth-child(odd){
@@ -237,27 +273,50 @@ a{
 		justify-content: flex-end;
 		.article__img{
 			margin-right: 20px;
+			.media-max(850px, {
+				margin-right: 0;
+			});
 		}
 		.article__wrap{
 			padding-left: 28px;
+			.media-max(850px, {
+				padding-left: 0;
+			});
 		}
 	}
 	& + &{
 		margin-top: 228px;
+		.media-max(1200px, {
+			margin-top: 120px;
+		});
+		.media-max(960px, {
+			margin-top: 80px;
+		});
 	}
 	&__img{
 		.size(7);
+		.media-max(850px, {
+			.size(12);
+			margin-bottom: 30px;
+		});
 	}
 	&__wrap{
 		.size(4);
+		.media-max(850px, {
+			.size(12);
+		});
 	}
 	&__h{
 		font-family: @prata;
-		font-size: 64px;
+		font-size: 4.44vw;
 		font-weight: @fontNormal;
 		line-height: 1.35;
 		margin: 0;
 		margin-bottom: 28px;
+		.media-max(600px, {
+			font-size: 28px;
+			word-break: break-all;
+		});
 	}
 	&__text{
 		margin: 0;
@@ -340,9 +399,17 @@ a{
 	}
 	&__info{
 		.size(4);
+		.media-max(780px, {
+			.size(8);
+			min-width: 270px;
+			margin-bottom: 30px;
+		});
 	}
 	&__form{
 		.size(7);
+		.media-max(780px, {
+			.size(12);
+		});
 	}
 	&__h{
 		font-size: 64px / 1440px * 100vw;
@@ -353,6 +420,9 @@ a{
 		margin-bottom: 28px;
 		.media-min(1500px, {
 			font-size: 67px;
+		});
+		.media-max(600px, {
+			font-size: 28px;
 		});
 	}
 	&__text,
@@ -453,7 +523,9 @@ a{
 		.size(4);
 		&:first-child{
 			.size(8);
+			.size-sm(12);
 		}
+		.size-sm(12);
 	}
 	&__figure{
 		margin: 0;

@@ -1,5 +1,8 @@
 <header class="main-header">
     <div class="wrapper main-header__wrap">
+        <button class="main-header__action main-header__action_nav action action-nav" aria-label="Відкрити меню навігації">
+            {% include './svgo/ico-burger-menu.svg' %}
+        </button>
         <nav class="main-header__nav main-nav">
             <a href="#calc" class="main-nav__link">Розрахунок</a>
             <a href="#products" class="main-nav__link">Вироби</a>
@@ -33,5 +36,10 @@
                 </li>
             </ul>
         </aside>
+        <button aria-label="Відкрити контактну інформацію" class="main-header__action main-header__action_info action action-info">
+            <svg width="30" height="20" viewBox="0 0 192 512">
+                <path d="M20 424.229h20V279.771H20c-11.046 0-20-8.954-20-20V212c0-11.046 8.954-20 20-20h112c11.046 0 20 8.954 20 20v212.229h20c11.046 0 20 8.954 20 20V492c0 11.046-8.954 20-20 20H20c-11.046 0-20-8.954-20-20v-47.771c0-11.046 8.954-20 20-20zM96 0C56.235 0 24 32.235 24 72s32.235 72 72 72 72-32.235 72-72S135.764 0 96 0z" />
+              </svg>
+        </button>
     </div>
 </header>
